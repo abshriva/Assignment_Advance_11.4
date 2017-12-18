@@ -1,0 +1,38 @@
+
+  <h3>Employee Details</h3>
+  <div class="panel panel-default">
+  <input type="text" name="search" class="form-control" placeholder="Search" [(ngModel)]="searchData">
+  <div class="table-resposive">
+    <table class="table table-filter">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>DOB</th>
+        <th>Emp. Id</th> 
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngFor="let employeeList of (empdetail | searchBy : searchData)">
+        <td>
+        <div class="media">
+        <a href="#" class="pull-left">
+        <img [src]="imageUrl" class="media-photo">
+        </a>
+        </div>
+        </td>
+        <td>{{employeeList.title}}</td>
+        <td>{{employeeList.name | capitalize}}</td>
+        <td>{{employeeList.age}}</td>
+        <td>{{employeeList.dob | date :'M/d/yyyy'}}</td>
+        <td>{{employeeList.id}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
